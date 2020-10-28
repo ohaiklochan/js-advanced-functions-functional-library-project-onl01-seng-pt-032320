@@ -9,6 +9,7 @@ const fi = (function() {
         callback(element)
       }
       return collection;
+<<<<<<< HEAD
     },
 
     map: function(collection, callback) {
@@ -81,6 +82,14 @@ const fi = (function() {
         if (!!element) {
           result.push(element);
         }
+=======
+    },
+
+    map: function(collection, callback) {
+      let result = [];
+      for (let element of Object.values(collection)){
+        result.push(callback(element));
+>>>>>>> f932fe99427f56d66c7aee20f48545573ee05f3b
       }
       return result;
     },
@@ -116,6 +125,7 @@ const fi = (function() {
         for(let element of array) {
           let result = callback(element)
 
+<<<<<<< HEAD
 
           if(!mod.some(x => x === result)){
             mod.push(result)
@@ -132,8 +142,35 @@ const fi = (function() {
 
     values: function(object) {
       return Object.values(object)
-    },
+=======
+    reduce: function(collection, callback, acc) {
+      let total;
+      let counter;
 
+      if (!!acc) {
+        total = acc;
+        counter = 0;
+      } else {
+        total = collection[0];
+        counter = 1;
+      }
+
+     for (let i = counter; i < collection.length; i++) {
+       total = callback(total, collection[i])
+     }
+      return total
+>>>>>>> f932fe99427f56d66c7aee20f48545573ee05f3b
+    },
+    
+    find: function(collection, predicate) {
+      for (let element of collection) {
+        if (predicate(element)) {
+          return element;
+        }
+      }
+    }
+
+<<<<<<< HEAD
     functions: function(object) {
       let array = Object.entries(object);
       let result = [];
@@ -144,6 +181,10 @@ const fi = (function() {
         }
       }
       return result.sort()
+=======
+    functions: function() {
+      
+>>>>>>> f932fe99427f56d66c7aee20f48545573ee05f3b
     },
 
 
